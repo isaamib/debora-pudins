@@ -1,0 +1,2350 @@
+================================================================================
+DEBORA PUDINS - CÓDIGOS COMPLETOS
+Todos os arquivos do projeto em formato texto
+================================================================================
+
+[AboutDebora.jsx]
+================================================================================
+import { useRef } from 'react'
+
+function AboutDebora() {
+  const imageRef = useRef(null)
+
+  function handleMouseMove(event) {
+    if (!imageRef.current) return
+
+    const rect = imageRef.current.getBoundingClientRect()
+
+    const x =
+      ((event.clientX - rect.left) / rect.width - 0.5) * 10
+
+    const y =
+      ((event.clientY - rect.top) / rect.height - 0.5) * 10
+
+    imageRef.current.style.transform =
+      `scale(1.04) translate(${x}px, ${y}px)`
+  }
+
+  function handleMouseLeave() {
+    if (!imageRef.current) return
+
+    imageRef.current.style.transform =
+      'scale(1) translate(0, 0)'
+  }
+
+  return (
+    <section
+      id="debora"
+      className="
+        relative
+        overflow-hidden
+        bg-cream
+        px-5
+        py-28
+        md:px-10
+        md:py-44
+      "
+    >
+      <div className="site-container">
+
+        <div className="grid gap-16 md:grid-cols-12 md:items-center">
+
+          {/* FOTO */}
+
+          <div
+            className="
+              relative
+              overflow-hidden
+              rounded-[30px]
+              md:col-span-6
+            "
+            onMouseMove={handleMouseMove}
+            onMouseLeave={handleMouseLeave}
+          >
+            <div className="aspect-[4/5] bg-[#D5A17C]">
+
+              <img
+                ref={imageRef}
+                src="/images/debora/debora.webp"
+                alt="Debora, criadora da Debora Pudins"
+                loading="lazy"
+                className="
+                  h-full
+                  w-full
+                  object-cover
+                  transition-transform
+                  duration-1000
+                  ease-out
+                "
+              />
+
+            </div>
+
+            <div
+              className="
+                absolute
+                bottom-5
+                left-5
+                rounded-full
+                bg-cream/85
+                px-4
+                py-2
+                text-[9px]
+                font-semibold
+                uppercase
+                tracking-[0.16em]
+                backdrop-blur-md
+              "
+            >
+              Por trás do pudim
+            </div>
+          </div>
+
+
+          {/* TEXTO */}
+
+          <div className="md:col-span-5 md:col-start-8">
+
+            <span className="eyebrow text-chocolate/45">
+              04 / sobre a Debora
+            </span>
+
+            <h2
+              className="
+                mt-7
+                font-display
+                text-[clamp(4rem,7vw,7.5rem)]
+                leading-[0.84]
+                tracking-[-0.055em]
+              "
+            >
+              O pudim
+              <br />
+              tem
+              <br />
+
+              <span className="text-caramel">
+                dona.
+              </span>
+            </h2>
+
+            <div
+              className="
+                mt-10
+                space-y-5
+                text-sm
+                font-light
+                leading-[1.9]
+                text-chocolate/65
+                md:text-base
+              "
+            >
+              <p>
+                A Debora Pudins nasceu de uma paixão bem simples:
+                fazer pudim e querer fazer mais um.
+              </p>
+
+              <p>
+                Da cozinha para a mesa, cada receita foi ganhando
+                personalidade, novos sabores e aquele cuidado que
+                transforma uma sobremesa em parte do momento.
+              </p>
+
+              <p>
+                Porque no fim das contas, não é só sobre o pudim.
+                É sobre a vontade de experimentar, dividir,
+                conversar e pegar mais uma colherada.
+              </p>
+            </div>
+
+            <div className="mt-10 flex items-center gap-4">
+
+              <span className="h-px w-10 bg-chocolate/30" />
+
+              <span className="font-display text-2xl">
+                — Debora
+              </span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  )
+}
+
+export default AboutDebora
+
+
+[Caramel.jsx]
+================================================================================
+import { forwardRef } from 'react'
+
+const Caramel = forwardRef(function Caramel(_, ref) {
+  return (
+    <div
+      ref={ref}
+      aria-hidden="true"
+      className="
+        caramel-layer
+        absolute
+        left-1/2
+        top-0
+        -translate-x-1/2
+      "
+      style={{
+        width: 'min(46vw, 620px)',
+        height: '75vh',
+      }}
+    >
+      {/* Corpo principal da calda */}
+      <div
+        className="
+          absolute
+          left-1/2
+          top-0
+          h-[82%]
+          w-[72%]
+          -translate-x-1/2
+          rounded-b-[48%]
+          bg-caramel
+          shadow-[0_30px_70px_rgba(149,59,10,0.16)]
+        "
+      />
+
+      {/* Centro mais espesso */}
+      <div
+        className="
+          absolute
+          left-1/2
+          top-[2%]
+          h-[90%]
+          w-[36%]
+          -translate-x-1/2
+          rounded-b-[50%]
+          bg-[#F09A1A]
+          opacity-80
+          blur-[1px]
+        "
+      />
+
+      {/* Reflexo */}
+      <div
+        className="
+          absolute
+          left-[38%]
+          top-[4%]
+          h-[68%]
+          w-[8%]
+          rounded-full
+          bg-[#FFC15A]
+          opacity-45
+          blur-[5px]
+        "
+      />
+
+      {/* Gota principal */}
+      <div
+        className="
+          caramel-drop
+          absolute
+          left-1/2
+          top-[70%]
+          h-32
+          w-32
+          -translate-x-1/2
+          rounded-full
+          bg-caramel
+          shadow-[0_20px_35px_rgba(149,59,10,0.18)]
+        "
+      />
+
+      {/* Pequena gota lateral */}
+      <div
+        className="
+          caramel-drop-side
+          absolute
+          left-[30%]
+          top-[65%]
+          h-12
+          w-12
+          rounded-full
+          bg-[#D97806]
+        "
+      />
+    </div>
+  )
+})
+
+export default Caramel
+
+
+[CTA.jsx]
+================================================================================
+export default function CTA() {
+  return (
+    <section className="py-24 px-6">
+      <div className="max-w-6xl mx-auto text-center">
+        <h2 className="text-4xl md:text-6xl font-serif">
+          Um pudim feito para marcar momentos.
+        </h2>
+
+        <p className="mt-6 text-lg">
+          Escolha seu sabor e faça seu pedido.
+        </p>
+
+        <a
+          href="#pedido"
+          className="inline-block mt-8 px-8 py-4 rounded-full bg-black text-white"
+        >
+          Fazer pedido
+        </a>
+      </div>
+    </section>
+  );
+}
+
+
+[Experience.jsx]
+================================================================================
+export default function Experience() {
+  return (
+    <section className="py-24 px-6 bg-[#f8f5f0]">
+      <div className="max-w-6xl mx-auto">
+        <div className="max-w-2xl">
+          <span className="text-sm uppercase tracking-[0.2em]">
+            Experiência
+          </span>
+
+          <h2 className="mt-4 text-4xl md:text-6xl font-serif">
+            Um sabor que fica na memória.
+          </h2>
+
+          <p className="mt-6 text-lg leading-relaxed">
+            Cada pudim é preparado com cuidado, ingredientes selecionados
+            e aquele toque especial que transforma uma sobremesa em
+            experiência.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-6 mt-16">
+          <div>
+            <h3 className="text-xl font-semibold">Ingredientes</h3>
+            <p className="mt-3 text-gray-600">
+              Selecionados para garantir sabor e qualidade em cada receita.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="text-xl font-semibold">Feito com carinho</h3>
+            <p className="mt-3 text-gray-600">
+              Produção cuidadosa, respeitando cada etapa do preparo.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="text-xl font-semibold">Para momentos especiais</h3>
+            <p className="mt-3 text-gray-600">
+              Uma sobremesa pensada para compartilhar, presentear e celebrar.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+
+[FlavorCard.jsx]
+================================================================================
+import { useRef } from 'react'
+
+function FlavorCard({ flavor, index }) {
+  const cardRef = useRef(null)
+  const imageRef = useRef(null)
+
+  function handleMouseMove(event) {
+    if (!cardRef.current || !imageRef.current) return
+
+    const rect = cardRef.current.getBoundingClientRect()
+
+    const x = event.clientX - rect.left
+    const y = event.clientY - rect.top
+
+    const centerX = rect.width / 2
+    const centerY = rect.height / 2
+
+    const rotateX = ((y - centerY) / centerY) * -3
+    const rotateY = ((x - centerX) / centerX) * 3
+
+    cardRef.current.style.transform = `
+      perspective(1000px)
+      rotateX(${rotateX}deg)
+      rotateY(${rotateY}deg)
+    `
+
+    imageRef.current.style.transform = `
+      translate(${(x - centerX) * 0.025}px, ${(y - centerY) * 0.025}px)
+      scale(1.04)
+    `
+  }
+
+  function handleMouseLeave() {
+    if (!cardRef.current || !imageRef.current) return
+
+    cardRef.current.style.transform =
+      'perspective(1000px) rotateX(0deg) rotateY(0deg)'
+
+    imageRef.current.style.transform =
+      'translate(0, 0) scale(1)'
+  }
+
+  return (
+    <article
+      ref={cardRef}
+      className="
+        pudding-card
+        group
+        relative
+        overflow-hidden
+        rounded-[28px]
+        bg-white/30
+        transition-transform
+        duration-500
+        ease-out
+        will-change-transform
+      "
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+    >
+      {/* Imagem */}
+
+      <div
+        className="
+          relative
+          aspect-[4/5]
+          overflow-hidden
+        "
+      >
+        <div
+          className="absolute inset-0 opacity-10"
+          style={{
+            backgroundColor: flavor.accent,
+          }}
+        />
+
+        <img
+          ref={imageRef}
+          src={flavor.image}
+          alt={flavor.name}
+          loading={index > 2 ? 'lazy' : 'eager'}
+          className="
+            pudding-card-image
+            relative
+            h-full
+            w-full
+            object-contain
+            p-5
+            transition-transform
+            duration-700
+            ease-out
+          "
+        />
+
+        {/* Número */}
+
+        <span
+          className="
+            absolute
+            left-5
+            top-5
+            font-display
+            text-5xl
+            leading-none
+            opacity-20
+          "
+        >
+          {flavor.number}
+        </span>
+
+        {/* Badge */}
+
+        <span
+          className="
+            absolute
+            right-5
+            top-5
+            rounded-full
+            border
+            border-chocolate/10
+            bg-cream/80
+            px-3
+            py-1.5
+            text-[9px]
+            font-semibold
+            uppercase
+            tracking-[0.15em]
+            backdrop-blur-md
+          "
+        >
+          {flavor.highlight}
+        </span>
+
+        {/* Indicador */}
+
+        <div
+          className="
+            absolute
+            bottom-5
+            right-5
+            flex
+            h-10
+            w-10
+            items-center
+            justify-center
+            rounded-full
+            bg-chocolate
+            text-cream
+            opacity-0
+            transition-all
+            duration-500
+            group-hover:opacity-100
+          "
+        >
+          ↗
+        </div>
+      </div>
+
+      {/* Conteúdo */}
+
+      <div className="px-5 pb-7 pt-5 md:px-7 md:pb-8">
+
+        <p className="mb-2 text-[9px] font-semibold uppercase tracking-[0.18em] text-chocolate/45">
+          {flavor.category}
+        </p>
+
+        <h3
+          className="
+            font-display
+            text-4xl
+            leading-[0.9]
+            tracking-[-0.04em]
+            md:text-5xl
+          "
+        >
+          {flavor.name}
+        </h3>
+
+        <p className="mt-5 max-w-sm text-sm font-light leading-[1.8] text-chocolate/65">
+          {flavor.description}
+        </p>
+      </div>
+    </article>
+  )
+}
+
+export default FlavorCard
+
+
+[Flavors.jsx]
+================================================================================
+import { flavors } from '../data/flavors'
+import FlavorCard from './FlavorCard'
+
+function Flavors() {
+  return (
+    <section
+      id="sabores"
+      className="
+        relative
+        overflow-hidden
+        bg-cream
+        px-5
+        py-28
+        md:px-10
+        md:py-44
+      "
+    >
+      <div className="site-container">
+
+        {/* Cabeçalho */}
+
+        <div className="grid gap-12 md:grid-cols-12 md:items-end">
+
+          <div className="md:col-span-2">
+            <span className="eyebrow text-chocolate/50">
+              02 / sabores
+            </span>
+          </div>
+
+          <div className="md:col-span-8 md:col-start-4">
+
+            <h2
+              className="
+                section-title
+                max-w-5xl
+              "
+            >
+              Escolher um
+              <span className="text-caramel"> só?</span>
+            </h2>
+
+          </div>
+
+        </div>
+
+
+        {/* Introdução */}
+
+        <div className="mt-16 grid md:grid-cols-12">
+
+          <div className="md:col-span-5 md:col-start-7">
+
+            <p className="max-w-lg text-sm font-light leading-[1.9] text-chocolate/65 md:text-base">
+              A parte mais difícil é decidir por onde começar.
+              Tem o clássico, tem o inesperado e tem aquele que
+              você prova por curiosidade e termina defendendo
+              como se tivesse inventado.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        {/* Grid */}
+
+        <div
+          className="
+            mt-20
+            grid
+            grid-cols-1
+            gap-5
+            sm:grid-cols-2
+            lg:grid-cols-3
+          "
+        >
+          {flavors.map((flavor, index) => (
+            <FlavorCard
+              key={flavor.id}
+              flavor={flavor}
+              index={index}
+            />
+          ))}
+        </div>
+
+
+        {/* Rodapé da seção */}
+
+        <div
+          className="
+            mt-20
+            flex
+            flex-col
+            gap-5
+            border-t
+            border-chocolate/15
+            pt-6
+            md:flex-row
+            md:items-center
+            md:justify-between
+          "
+        >
+          <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-chocolate/45">
+            E ainda tem mais por aqui.
+          </span>
+
+          <span className="font-display text-2xl">
+            Qual vai ser?
+          </span>
+        </div>
+
+      </div>
+    </section>
+  )
+}
+
+export default Flavors
+
+
+[Footer.jsx]
+================================================================================
+export default function Footer() {
+  return (
+    <footer className="px-6 py-12 border-t border-black/10">
+      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+        <div>
+          <h3 className="text-2xl font-serif">Debora Pudins</h3>
+          <p className="mt-2 text-sm text-gray-500">
+            Pudins feitos com carinho para momentos especiais.
+          </p>
+        </div>
+
+        <div className="flex gap-6 text-sm">
+          <a href="#inicio" className="hover:opacity-60 transition">
+            Início
+          </a>
+
+          <a href="#sobre" className="hover:opacity-60 transition">
+            Sobre
+          </a>
+
+          <a href="#sabores" className="hover:opacity-60 transition">
+            Sabores
+          </a>
+
+          <a href="#contato" className="hover:opacity-60 transition">
+            Contato
+          </a>
+        </div>
+      </div>
+
+      <div className="max-w-6xl mx-auto mt-10 pt-6 border-t border-black/10 text-center text-xs text-gray-400">
+        © {new Date().getFullYear()} Debora Pudins. Todos os direitos reservados.
+      </div>
+    </footer>
+  );
+}
+
+
+[Header.jsx]
+================================================================================
+function Header() {
+  return (
+    <header
+      className="
+        absolute
+        top-0
+        left-0
+        z-50
+        w-full
+        px-5
+        py-5
+        md:px-10
+        md:py-7
+      "
+    >
+      <div
+        className="
+          mx-auto
+          flex
+          w-full
+          max-w-[1520px]
+          items-center
+          justify-between
+        "
+      >
+        {/* Indicador lateral esquerdo */}
+        <div className="flex items-center gap-2">
+          <span className="h-1.5 w-1.5 rounded-full bg-chocolate" />
+
+          <span className="hidden text-[10px] font-semibold uppercase tracking-[0.18em] sm:block">
+            Pudins nada tradicionais
+          </span>
+        </div>
+
+        {/* Logo */}
+        <a
+          href="#inicio"
+          aria-label="Debora Pudins — início"
+          className="
+            absolute
+            left-1/2
+            -translate-x-1/2
+            font-display
+            text-2xl
+            leading-none
+            tracking-[-0.04em]
+            transition-transform
+            duration-300
+            hover:scale-105
+            md:text-3xl
+          "
+        >
+          debora
+          <span className="text-caramel">.</span>
+        </a>
+
+        {/* Indicador lateral direito */}
+        <div className="ml-auto flex items-center gap-2">
+          <span className="hidden text-[10px] font-semibold uppercase tracking-[0.18em] sm:block">
+            scroll
+          </span>
+
+          <span className="block h-8 w-px bg-chocolate/30" />
+        </div>
+      </div>
+    </header>
+  )
+}
+
+export default Header
+
+
+[Hero.jsx]
+================================================================================
+import { useLayoutEffect, useRef } from 'react'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+import Caramel from './Caramel'
+
+gsap.registerPlugin(ScrollTrigger)
+
+function Hero() {
+  const sectionRef = useRef(null)
+  const caramelRef = useRef(null)
+  const puddingRef = useRef(null)
+  const headlineRef = useRef(null)
+  const subtitleRef = useRef(null)
+
+  useLayoutEffect(() => {
+    const section = sectionRef.current
+    const caramel = caramelRef.current
+    const pudding = puddingRef.current
+    const headline = headlineRef.current
+    const subtitle = subtitleRef.current
+
+    if (!section || !caramel || !pudding) return
+
+    const reduceMotion = window.matchMedia(
+      '(prefers-reduced-motion: reduce)'
+    ).matches
+
+    if (reduceMotion) return
+
+    const ctx = gsap.context(() => {
+      /*
+       * Estado inicial
+       */
+
+      gsap.set(caramel, {
+        yPercent: -72,
+        scaleY: 0.45,
+        scaleX: 0.8,
+        opacity: 0,
+        transformOrigin: '50% 0%',
+      })
+
+      gsap.set(pudding, {
+        y: 40,
+        scale: 0.88,
+        rotation: -1.5,
+      })
+
+      gsap.set(headline, {
+        y: 30,
+        opacity: 0,
+      })
+
+      gsap.set(subtitle, {
+        y: 20,
+        opacity: 0,
+      })
+
+
+      /*
+       * Entrada inicial
+       */
+
+      const intro = gsap.timeline({
+        defaults: {
+          ease: 'power3.out',
+        },
+      })
+
+      intro
+        .to(headline, {
+          y: 0,
+          opacity: 1,
+          duration: 1.1,
+          delay: 0.25,
+        })
+        .to(
+          subtitle,
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.8,
+          },
+          '-=0.7'
+        )
+
+
+      /*
+       * Scroll principal
+       */
+
+      const scrollTimeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: section,
+          start: 'top top',
+          end: '+=180%',
+          scrub: true,
+          pin: true,
+          anticipatePin: 1,
+        },
+      })
+
+      scrollTimeline
+
+        /*
+         * Caramelo começa a aparecer
+         */
+
+        .to(
+          caramel,
+          {
+            yPercent: -25,
+            scaleY: 0.7,
+            scaleX: 0.92,
+            opacity: 1,
+            duration: 1,
+            ease: 'none',
+          },
+          0
+        )
+
+        /*
+         * Caramelo ganha corpo
+         */
+
+        .to(
+          caramel,
+          {
+            yPercent: 8,
+            scaleY: 1.05,
+            scaleX: 1,
+            duration: 1,
+            ease: 'none',
+          },
+          0.28
+        )
+
+        /*
+         * Pequena deformação
+         */
+
+        .to(
+          caramel,
+          {
+            scaleX: 1.08,
+            duration: 0.35,
+            ease: 'sine.inOut',
+          },
+          0.48
+        )
+
+        .to(
+          caramel,
+          {
+            scaleX: 0.96,
+            duration: 0.35,
+            ease: 'sine.inOut',
+          },
+          0.7
+        )
+
+        /*
+         * Pudim entra na composição
+         */
+
+        .to(
+          pudding,
+          {
+            y: -10,
+            scale: 1,
+            rotation: 0,
+            duration: 1,
+            ease: 'power2.out',
+          },
+          0.25
+        )
+
+        /*
+         * Caramelo desce sobre o pudim
+         */
+
+        .to(
+          caramel,
+          {
+            yPercent: 35,
+            scaleY: 1.18,
+            duration: 1,
+            ease: 'none',
+          },
+          0.62
+        )
+
+        /*
+         * Headline desaparece suavemente
+         */
+
+        .to(
+          headline,
+          {
+            y: -70,
+            opacity: 0,
+            duration: 0.5,
+            ease: 'power2.in',
+          },
+          0.72
+        )
+
+        .to(
+          subtitle,
+          {
+            y: -40,
+            opacity: 0,
+            duration: 0.4,
+            ease: 'power2.in',
+          },
+          0.76
+        )
+
+        /*
+         * Final da cena
+         */
+
+        .to(
+          pudding,
+          {
+            scale: 1.06,
+            y: -30,
+            duration: 0.5,
+            ease: 'power2.out',
+          },
+          0.88
+        )
+    }, section)
+
+    return () => {
+      ctx.revert()
+    }
+  }, [])
+
+  return (
+    <section
+      ref={sectionRef}
+      id="inicio"
+      className="
+        hero-section
+        relative
+        min-h-[100svh]
+        bg-cream
+      "
+    >
+      <div
+        className="
+          hero-stage
+          relative
+          flex
+          min-h-[100svh]
+          items-center
+          justify-center
+        "
+      >
+
+        {/* =================================================
+            ELEMENTOS DECORATIVOS
+        ================================================= */}
+
+        <div
+          className="
+            absolute
+            left-5
+            top-1/2
+            z-[1]
+            hidden
+            -translate-y-1/2
+            flex-col
+            gap-3
+            md:flex
+          "
+        >
+          <span className="text-[9px] font-semibold uppercase tracking-[0.22em] [writing-mode:vertical-rl]">
+            artesanal
+          </span>
+
+          <span className="h-16 w-px bg-chocolate/20" />
+        </div>
+
+
+        <div
+          className="
+            absolute
+            right-5
+            top-1/2
+            z-[1]
+            hidden
+            -translate-y-1/2
+            flex-col
+            gap-3
+            md:flex
+          "
+        >
+          <span className="h-16 w-px bg-chocolate/20" />
+
+          <span className="text-[9px] font-semibold uppercase tracking-[0.22em] [writing-mode:vertical-rl]">
+            feito para repetir
+          </span>
+        </div>
+
+
+        {/* =================================================
+            HEADLINE
+        ================================================= */}
+
+        <div
+          className="
+            hero-content
+            absolute
+            left-1/2
+            top-[19%]
+            z-30
+            w-[calc(100%-32px)]
+            max-w-5xl
+            -translate-x-1/2
+            text-center
+            md:top-[18%]
+          "
+        >
+          <p
+            ref={subtitleRef}
+            className="
+              eyebrow
+              mb-5
+              text-chocolate/70
+            "
+          >
+            Debora Pudins
+          </p>
+
+          <h1
+            ref={headlineRef}
+            className="
+              display-title
+              text-chocolate
+            "
+          >
+            Pudins
+            <br />
+
+            <span className="text-caramel">
+              nada
+            </span>{' '}
+            tradicionais.
+          </h1>
+        </div>
+
+
+        {/* =================================================
+            PUDIM
+        ================================================= */}
+
+        <div
+          ref={puddingRef}
+          className="
+            hero-pudding
+            absolute
+            bottom-[6%]
+            left-1/2
+            z-10
+            h-[48vh]
+            w-[88vw]
+            max-w-[720px]
+            -translate-x-1/2
+            md:bottom-[3%]
+            md:h-[58vh]
+            md:w-[62vw]
+          "
+        >
+          <div
+            className="
+              absolute
+              inset-0
+              rounded-[50%]
+              bg-caramel/10
+              blur-3xl
+            "
+          />
+
+          {/* 
+            Placeholder visual.
+
+            Depois substituiremos por uma fotografia
+            real/transparente do pudim.
+          */}
+
+          <div
+            className="
+              absolute
+              bottom-[8%]
+              left-1/2
+              h-[58%]
+              w-[58%]
+              -translate-x-1/2
+              rounded-[45%_45%_35%_35%]
+              bg-gradient-to-b
+              from-[#C96B27]
+              via-[#A94A12]
+              to-chocolate
+              shadow-[0_35px_70px_rgba(80,30,5,0.25)]
+            "
+          />
+
+          <div
+            className="
+              absolute
+              bottom-[49%]
+              left-1/2
+              h-[18%]
+              w-[50%]
+              -translate-x-1/2
+              rounded-[50%]
+              bg-[#E5A15C]
+              opacity-80
+              blur-[1px]
+            "
+          />
+
+          <div
+            className="
+              absolute
+              bottom-[52%]
+              left-[35%]
+              h-[7%]
+              w-[12%]
+              rounded-full
+              bg-[#FFC77C]
+              opacity-60
+              blur-[4px]
+            "
+          />
+        </div>
+
+
+        {/* =================================================
+            CARAMEL
+        ================================================= */}
+
+        <Caramel ref={caramelRef} />
+
+
+        {/* =================================================
+            INDICADOR DE SCROLL
+        ================================================= */}
+
+        <div
+          className="
+            absolute
+            bottom-7
+            left-1/2
+            z-40
+            -translate-x-1/2
+            md:bottom-9
+          "
+        >
+          <div className="flex flex-col items-center gap-3">
+            <span className="text-[9px] font-semibold uppercase tracking-[0.25em]">
+              role
+            </span>
+
+            <div className="h-10 w-px overflow-hidden bg-chocolate/20">
+              <div className="h-1/2 w-full origin-top animate-pulse bg-chocolate" />
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  )
+}
+
+export default Hero
+
+
+[Manifesto.jsx]
+================================================================================
+function Manifesto() {
+  return (
+    <section
+      id="manifesto"
+      className="
+        relative
+        overflow-hidden
+        bg-chocolate
+        px-5
+        py-28
+        text-cream
+        md:px-10
+        md:py-44
+      "
+    >
+      <div className="site-container">
+
+        <div className="grid gap-16 md:grid-cols-12 md:items-end">
+
+          {/* Número */}
+
+          <div className="md:col-span-2">
+            <span className="eyebrow text-cream/50">
+              01 / manifesto
+            </span>
+          </div>
+
+
+          {/* Frase */}
+
+          <div className="md:col-span-9 md:col-start-4">
+
+            <h2
+              className="
+                font-display
+                text-[clamp(3.5rem,8vw,9rem)]
+                leading-[0.86]
+                tracking-[-0.055em]
+              "
+            >
+              Um doce pode ser pequeno.
+              <br />
+
+              <span className="text-caramel">
+                O momento que ele cria,
+              </span>
+
+              <br />
+
+              não.
+            </h2>
+
+          </div>
+
+        </div>
+
+
+        {/* Texto complementar */}
+
+        <div className="mt-20 grid md:grid-cols-12">
+
+          <div className="md:col-span-4 md:col-start-7">
+
+            <p
+              className="
+                max-w-md
+                text-sm
+                font-light
+                leading-[1.9]
+                text-cream/70
+                md:text-base
+              "
+            >
+              Tem sobremesa que só termina.
+              Tem sobremesa que faz você parar,
+              respirar e pegar mais uma colherada.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  )
+}
+
+export default Manifesto
+
+
+[Process.jsx]
+================================================================================
+import { useEffect, useRef } from 'react'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+gsap.registerPlugin(ScrollTrigger)
+
+const steps = [
+  {
+    number: '01',
+    title: 'Ingredientes',
+    description:
+      'Tudo começa com a escolha dos sabores e dos ingredientes que vão dar personalidade a cada receita.',
+  },
+  {
+    number: '02',
+    title: 'Preparo',
+    description:
+      'Cada receita recebe seu tempo. Mistura, textura e equilíbrio importam tanto quanto o sabor.',
+  },
+  {
+    number: '03',
+    title: 'Forno',
+    description:
+      'Temperatura, textura e paciência. É aqui que a receita começa a virar aquele pudim que a gente conhece.',
+  },
+  {
+    number: '04',
+    title: 'Finalização',
+    description:
+      'A última etapa antes de chegar à mesa. Calda, detalhes e aquele segundo em que dá vontade de provar.',
+  },
+]
+
+function Process() {
+  const sectionRef = useRef(null)
+
+  useEffect(() => {
+    const section = sectionRef.current
+
+    if (!section) return
+
+    const reduceMotion = window.matchMedia(
+      '(prefers-reduced-motion: reduce)'
+    ).matches
+
+    if (reduceMotion) return
+
+    const ctx = gsap.context(() => {
+      const cards = gsap.utils.toArray('.process-step')
+
+      cards.forEach((card) => {
+        gsap.fromTo(
+          card,
+          {
+            y: 70,
+            opacity: 0,
+          },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 1,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: card,
+              start: 'top 85%',
+              end: 'top 55%',
+              scrub: 0.8,
+            },
+          }
+        )
+      })
+    }, section)
+
+    return () => ctx.revert()
+  }, [])
+
+  return (
+    <section
+      ref={sectionRef}
+      id="processo"
+      className="
+        relative
+        overflow-hidden
+        bg-chocolate
+        px-5
+        py-28
+        text-cream
+        md:px-10
+        md:py-44
+      "
+    >
+      <div className="site-container">
+
+        {/* Cabeçalho */}
+
+        <div className="grid gap-12 md:grid-cols-12">
+
+          <div className="md:col-span-2">
+            <span className="eyebrow text-cream/45">
+              03 / processo
+            </span>
+          </div>
+
+          <div className="md:col-span-8 md:col-start-4">
+
+            <h2 className="section-title">
+              Antes da
+              <br />
+              primeira
+              <span className="text-caramel"> colher.</span>
+            </h2>
+
+          </div>
+
+        </div>
+
+
+        {/* Texto */}
+
+        <div className="mt-16 grid md:grid-cols-12">
+
+          <div className="md:col-span-5 md:col-start-7">
+
+            <p className="text-sm font-light leading-[1.9] text-cream/65 md:text-base">
+              Existe bastante coisa acontecendo antes daquele
+              momento em que você quebra a superfície com a colher.
+              E é justamente essa parte que faz diferença.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        {/* Steps */}
+
+        <div className="mt-24">
+
+          {steps.map((step, index) => (
+            <div
+              key={step.number}
+              className="
+                process-step
+                grid
+                grid-cols-1
+                gap-8
+                border-t
+                border-cream/15
+                py-10
+                md:grid-cols-12
+                md:items-center
+                md:py-14
+              "
+            >
+
+              <div className="md:col-span-2">
+                <span className="process-number text-caramel">
+                  {step.number}
+                </span>
+              </div>
+
+
+              <div className="md:col-span-4">
+                <h3
+                  className="
+                    font-display
+                    text-5xl
+                    leading-none
+                    tracking-[-0.04em]
+                    md:text-7xl
+                  "
+                >
+                  {step.title}
+                </h3>
+              </div>
+
+
+              <div className="md:col-span-4 md:col-start-8">
+
+                <p className="max-w-md text-sm font-light leading-[1.9] text-cream/60 md:text-base">
+                  {step.description}
+                </p>
+
+              </div>
+
+            </div>
+          ))}
+
+        </div>
+
+      </div>
+    </section>
+  )
+}
+
+export default Process
+
+
+[flavors.js - DATA]
+================================================================================
+export const flavors = [
+  {
+    id: 1,
+    name: 'Clássico',
+    category: 'O começo de tudo',
+    description:
+      'Cremoso, delicado e coberto por aquela calda de caramelo que faz qualquer conversa parar por alguns segundos.',
+    highlight: 'Caramelo intenso',
+    image: '/images/pudins/classico.webp',
+    accent: '#E78908',
+    number: '01',
+  },
+
+  {
+    id: 2,
+    name: 'Pistache',
+    category: 'Verde, mas nada básico',
+    description:
+      'A cremosidade do pudim encontra o pistache em uma combinação elegante, delicada e perigosamente fácil de repetir.',
+    highlight: 'Pistache crocante',
+    image: '/images/pudins/pistache.webp',
+    accent: '#8E9A52',
+    number: '02',
+  },
+
+  {
+    id: 3,
+    name: 'Chocolate',
+    category: 'Para quem não brinca em serviço',
+    description:
+      'Chocolate profundo, textura aveludada e uma finalização que entrega exatamente o que você esperava.',
+    highlight: 'Chocolate intenso',
+    image: '/images/pudins/chocolate.webp',
+    accent: '#5C2815',
+    number: '03',
+  },
+
+  {
+    id: 4,
+    name: 'Coco Queimado',
+    category: 'Tropical com atitude',
+    description:
+      'Coco cremoso, notas tostadas e aquele contraste entre doce e intensidade que deixa a colher querendo voltar.',
+    highlight: 'Coco tostado',
+    image: '/images/pudins/coco.webp',
+    accent: '#B98254',
+    number: '04',
+  },
+
+  {
+    id: 5,
+    name: 'Doce de Leite',
+    category: 'Não precisava melhorar',
+    description:
+      'Doce de leite cremoso encontrando um pudim extremamente macio. Simplesmente não tem muito o que explicar.',
+    highlight: 'Doce de leite',
+    image: '/images/pudins/doce-de-leite.webp',
+    accent: '#C98236',
+    number: '05',
+  },
+
+  {
+    id: 6,
+    name: 'Café',
+    category: 'Para acordar o desejo',
+    description:
+      'O amargor elegante do café equilibrando a doçura do pudim em uma sobremesa adulta, intensa e surpreendente.',
+    highlight: 'Café brasileiro',
+    image: '/images/pudins/cafe.webp',
+    accent: '#6B3E28',
+    number: '06',
+  },
+
+  {
+    id: 7,
+    name: 'Maracujá',
+    category: 'Doce na medida',
+    description:
+      'Cremoso, fresco e com a acidez do maracujá entrando na hora certa para deixar tudo mais interessante.',
+    highlight: 'Acidez refrescante',
+    image: '/images/pudins/maracuja.webp',
+    accent: '#D89417',
+    number: '07',
+  },
+
+  {
+    id: 8,
+    name: 'Red Velvet',
+    category: 'Um pouco exagerado',
+    description:
+      'Uma versão mais ousada, com chocolate, baunilha e uma apresentação que definitivamente não passa despercebida.',
+    highlight: 'Chocolate + baunilha',
+    image: '/images/pudins/red-velvet.webp',
+    accent: '#A63A27',
+    number: '08',
+  },
+]
+
+
+[useReducedMotion.js - HOOKS]
+================================================================================
+import { useEffect, useState } from 'react'
+
+function useReducedMotion() {
+  const [reducedMotion, setReducedMotion] = useState(false)
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia(
+      '(prefers-reduced-motion: reduce)'
+    )
+
+    const updatePreference = () => {
+      setReducedMotion(mediaQuery.matches)
+    }
+
+    updatePreference()
+
+    mediaQuery.addEventListener(
+      'change',
+      updatePreference
+    )
+
+    return () => {
+      mediaQuery.removeEventListener(
+        'change',
+        updatePreference
+      )
+    }
+  }, [])
+
+  return reducedMotion
+}
+
+export default useReducedMotion
+
+
+[App.jsx]
+================================================================================
+import Header from './components/Header'
+import Hero from './components/Hero'
+import Manifesto from './components/Manifesto'
+import Flavors from './components/Flavors'
+import Process from './components/Process'
+import AboutDebora from './components/AboutDebora'
+import Experience from './components/Experience'
+import CTA from './components/CTA'
+import Footer from './components/Footer'
+
+function App() {
+  return (
+    <div className="min-h-screen overflow-x-hidden bg-cream text-chocolate">
+      <Header />
+
+      <main>
+        <Hero />
+
+        <Manifesto />
+
+        <Flavors />
+
+        <Process />
+
+        <AboutDebora />
+
+        <Experience />
+
+        <CTA />
+      </main>
+
+      <Footer />
+    </div>
+  )
+}
+
+export default App
+
+
+[index.css]
+================================================================================
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* =========================================================
+   FONTES
+   ========================================================= */
+
+/*
+  Coloque a fonte Berthold Block em:
+
+  public/fonts/BertholdBlock.woff2
+
+  Caso o arquivo ainda não esteja disponível,
+  o navegador utilizará o fallback definido abaixo.
+*/
+
+@font-face {
+  font-family: 'Berthold Block';
+  src: url('/fonts/BertholdBlock.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+/* =========================================================
+   VARIÁVEIS DA MARCA
+   ========================================================= */
+
+:root {
+  --color-chocolate: #953B0A;
+  --color-cream: #FFDECB;
+  --color-caramel: #E78908;
+
+  --font-display: 'Berthold Block', Impact, sans-serif;
+  --font-body: 'Poppins', sans-serif;
+
+  font-family: var(--font-body);
+  color: var(--color-chocolate);
+  background: var(--color-cream);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+
+  background: var(--color-cream);
+
+  scroll-behavior: auto;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+
+  background: var(--color-cream);
+  color: var(--color-chocolate);
+
+  font-family: var(--font-body);
+
+  overflow-x: hidden;
+}
+
+body,
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  border: 0;
+  cursor: pointer;
+}
+
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+img {
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+
+/* =========================================================
+   SELEÇÃO
+   ========================================================= */
+
+::selection {
+  background: var(--color-chocolate);
+  color: var(--color-cream);
+}
+
+
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-cream);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-chocolate);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-caramel);
+}
+
+
+/* Firefox */
+
+html {
+  scrollbar-color: var(--color-chocolate) var(--color-cream);
+  scrollbar-width: thin;
+}
+
+
+/* =========================================================
+   TIPOGRAFIA
+   ========================================================= */
+
+.font-display {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: -0.035em;
+}
+
+.font-body {
+  font-family: var(--font-body);
+}
+
+
+/* =========================================================
+   CORES DA MARCA
+   ========================================================= */
+
+.bg-cream {
+  background-color: var(--color-cream);
+}
+
+.bg-chocolate {
+  background-color: var(--color-chocolate);
+}
+
+.bg-caramel {
+  background-color: var(--color-caramel);
+}
+
+.text-cream {
+  color: var(--color-cream);
+}
+
+.text-chocolate {
+  color: var(--color-chocolate);
+}
+
+.text-caramel {
+  color: var(--color-caramel);
+}
+
+
+/* =========================================================
+   CONTAINER
+   ========================================================= */
+
+.site-container {
+  width: min(100% - 40px, 1440px);
+  margin-inline: auto;
+}
+
+@media (min-width: 768px) {
+  .site-container {
+    width: min(100% - 80px, 1440px);
+  }
+}
+
+@media (min-width: 1280px) {
+  .site-container {
+    width: min(100% - 120px, 1520px);
+  }
+}
+
+
+/* =========================================================
+   TÍTULOS
+   ========================================================= */
+
+.display-title {
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 11vw, 11rem);
+  line-height: 0.82;
+  letter-spacing: -0.055em;
+  font-weight: 400;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 8vw, 8rem);
+  line-height: 0.86;
+  letter-spacing: -0.05em;
+  font-weight: 400;
+}
+
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   BOTÕES
+   ========================================================= */
+
+.btn-primary {
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 54px;
+  padding: 0 28px;
+
+  overflow: hidden;
+
+  border-radius: 999px;
+
+  background: var(--color-chocolate);
+  color: var(--color-cream);
+
+  font-size: 0.85rem;
+  font-weight: 600;
+
+  transition:
+    transform 300ms ease,
+    color 300ms ease,
+    background-color 300ms ease;
+}
+
+.btn-primary::before {
+  content: '';
+
+  position: absolute;
+  inset: 0;
+
+  background: var(--color-caramel);
+
+  transform: translateY(101%);
+
+  transition: transform 450ms cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.btn-primary span {
+  position: relative;
+  z-index: 1;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+}
+
+.btn-primary:hover::before {
+  transform: translateY(0);
+}
+
+.btn-primary:active {
+  transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   LINHAS DECORATIVAS
+   ========================================================= */
+
+.brand-line {
+  width: 100%;
+  height: 1px;
+
+  background: currentColor;
+
+  opacity: 0.2;
+}
+
+
+/* =========================================================
+   TEXTURA SUTIL
+   ========================================================= */
+
+.grain {
+  position: relative;
+}
+
+.grain::after {
+  content: '';
+
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+
+  opacity: 0.045;
+
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='.8'/%3E%3C/svg%3E");
+
+  mix-blend-mode: multiply;
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero-section {
+  position: relative;
+  min-height: 100svh;
+
+  overflow: hidden;
+}
+
+.hero-stage {
+  position: relative;
+
+  width: 100%;
+  min-height: 100svh;
+
+  overflow: hidden;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 20;
+}
+
+.hero-pudding {
+  position: relative;
+  z-index: 10;
+
+  transform-origin: center bottom;
+
+  will-change: transform;
+}
+
+.caramel-layer {
+  position: absolute;
+
+  z-index: 15;
+
+  pointer-events: none;
+
+  will-change: transform, clip-path, opacity;
+}
+
+
+/* =========================================================
+   IMAGENS DOS PUDINS
+   ========================================================= */
+
+.pudding-image {
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+
+  will-change: transform;
+}
+
+.pudding-card-image {
+  transition:
+    transform 700ms cubic-bezier(0.16, 1, 0.3, 1),
+    filter 500ms ease;
+}
+
+.pudding-card:hover .pudding-card-image {
+  transform: scale(1.045);
+}
+
+
+/* =========================================================
+   CURSOR / ELEMENTOS INTERATIVOS
+   ========================================================= */
+
+.interactive {
+  transition:
+    transform 400ms cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 300ms ease;
+}
+
+
+/* =========================================================
+   PROCESSO
+   ========================================================= */
+
+.process-number {
+  font-family: var(--font-display);
+
+  font-size: clamp(4rem, 8vw, 8rem);
+
+  line-height: 0.8;
+
+  letter-spacing: -0.05em;
+}
+
+
+/* =========================================================
+   MARQUEE
+   ========================================================= */
+
+.marquee {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+
+  will-change: transform;
+
+  animation: marquee 24s linear infinite;
+}
+
+.marquee-item {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+
+  padding-right: 32px;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+
+/* =========================================================
+   EXPERIÊNCIA
+   ========================================================= */
+
+.experience-image {
+  overflow: hidden;
+}
+
+.experience-image img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  transition:
+    transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.experience-image:hover img {
+  transform: scale(1.04);
+}
+
+
+/* =========================================================
+   FOCUS ACCESSIBILITY
+   ========================================================= */
+
+:focus-visible {
+  outline: 2px solid var(--color-caramel);
+  outline-offset: 5px;
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .marquee-track {
+    animation: none;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 767px) {
+  .site-container {
+    width: min(100% - 32px, 640px);
+  }
+
+  .display-title {
+    font-size: clamp(3.5rem, 17vw, 7rem);
+    line-height: 0.84;
+  }
+
+  .section-title {
+    font-size: clamp(3rem, 15vw, 6rem);
+  }
+
+  .hero-section,
+  .hero-stage {
+    min-height: 100svh;
+  }
+
+  .btn-primary {
+    min-height: 50px;
+    padding-inline: 24px;
+  }
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .display-title {
+    font-size: clamp(5rem, 12vw, 8rem);
+  }
+}
+
+
+/* =========================================================
+   DESKTOP GRANDE
+   ========================================================= */
+
+@media (min-width: 1600px) {
+  .site-container {
+    width: min(100% - 160px, 1680px);
+  }
+}
+
+
+[main.jsx]
+================================================================================
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import App from './App'
+import './index.css'
+
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+)
+
+
+================================================================================
+FIM DO ARQUIVO
+================================================================================
